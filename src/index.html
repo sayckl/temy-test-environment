@@ -12,25 +12,25 @@
   <header>
   </header>
     <h1>It works!</h1>
-    <form class="registration-form" action="" method="post" onsubmit="return validate();">
-      <p>Name:*<input type="text" name="name" id="name" value="" placeholder="Your name"></p>
-      <p>Email:*<input type="text" name="email" id="email" value="" placeholder="Your email"></p>
-      <p>Country:*<select id="country" name="country" required>
-        <option selected disabled>Chouse your country</option>
-      </select></p>
-      <p>State:*<select id="state" name="state" required>
-        <option selected disabled>Chouse your state</option>
-      </select></p>
-      <p>City:*<select id="city" name="city" required>
-        <option selected disabled>Chouse your city</option>
-      </select></p>
-      <p>Phone Number:*<input type="text" id="phonenumber" name="phone" value="" placeholder="Your phone number..."></p>
-      <p>Address:<input type="text" id="address" name="address" value="" placeholder="Address line"></p>
-      <p>About me:</p><p><textarea id="aboutme" name="aboutme" rows="5" cols="40" maxlength="500" placeholder="Short information about me..."></textarea></p>
+    <form class="registration-form" action="" method="post" onsubmit="validate">
+      <div><label for="name">Name:</label><span>*</span><input type="text" name="name" id="name" value="" placeholder="Your name" required></div>
+      <div><label for="email">Email:</label><span>*</span><input type="text" name="email" id="email" value="" placeholder="Your email" required></div>
+      <div><label for="country">Country:</label><span>*</span><select id="country" name="country" required>
+      </select></div>
+      <div><label for="state">State:</label><span>*</span><select id="state" name="state" required hidden="true">
+      </select></div>
+      <div><label for="city">City:</label><span>*</span><select id="city" name="city" required  hidden="true">
+      </select></div>
+      <div><label for="phonenumber">Phone Number:</label><span>*</span><input type="text" id="phonenumber" name="phone" value="" placeholder="format (541) 754-3010" required></div>
+      <div><label for="address">Address:</label><input type="text" id="address" name="address" value="" placeholder="Address line"></div>
+      <div><label for="aboutme">About me:</label></div><div><textarea id="aboutme" name="aboutme" rows="5" cols="40" maxlength="500" placeholder="Short information about me..."></textarea></div>
       <button type="submit" name="button">Registrate</button>
     </form>
     <div class="users">
+      <p>Registered users</p>
+      <div class="userlist">
 
+      </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
