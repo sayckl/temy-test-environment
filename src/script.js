@@ -8,6 +8,8 @@ const address = document.getElementById('adress');
 const about_me = document.getElementById('aboutme');
 const userslist = document.querySelector('.userlist');
 let users;
+let countries;
+let states;
 
 function validate(event) {
 
@@ -38,29 +40,31 @@ function validate(event) {
   if (!about_me.value) {
     about_me.value = null;
   }
-}
-//  user = {
-//    id: users.length,
-//    name: ,
-//    email: ,
-//    phone_number: ,
-//    about_me: ,
-//    country_id: ,
-//    state_id: ,
-//    city_id:
-//  }
+  userslist.innerHTML = '';
+  display(users);
 
-//function sendNewUser(user) {
-  //return fetch(URL + 'users', {
-    //method: "POST",
-    //headers: {
-      //Accept: "application/json",
-      //"Content-Type": "application/json"
-    //},
-    //body: JSON.stringify(user)
-  //});
-//}
-//}
+
+  user = {
+    name: name.value,
+    email: email.value,
+    phone_number: number.value,
+    about_me: about_me.value,
+    country_id: country.value,
+    state_id: state.value,
+    city_id: city.value
+  }
+
+function sendNewUser(user) {
+  return fetch('http://localhost:3000/users', {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+  });
+}
+}
 
 window.onload = fetch("http://localhost:3000/users")
   .then(function(response) {
@@ -73,7 +77,7 @@ window.onload = fetch("http://localhost:3000/users")
      display(users);
    });
 
-function display(users) {
+function display(users){
   users.forEach(function(elem){
     elem.createdAt = normaldata(elem);
     const div = document.createElement('div');
@@ -102,3 +106,75 @@ function normaldata(elem) {
   let d = new Date(elem.createdAt);
   return d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear();
 }
+
+  fetch("http://localhost:3000/countries")
+    .then(function(response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(function(data) {
+      countries = data;
+       addcountry(countries);
+     });
+     function addcountry(countries){
+       countries.forEach(function(item) {
+         const option = document.createElement('option');
+         option.innerHTML = `${item.name}`;
+         option.value = `${item.id}`;
+
+         country.appendChild(option);
+       })
+     }
+
+   fetch("http://localhost:3000/states")
+     .then(function(response) {
+       if (response.ok) {
+         return response.json();
+       }
+     })
+     .then(function(data) {
+       states = data;
+        addstate(states);
+      });
+      function addstate(states){
+        states.forEach(function(item) {
+          const option = document.createElement('option');
+          option.innerHTML = `${item.name}`;
+          option.value = `${item.id}`;
+
+          state.appendChild(option);
+        })
+      }
+
+   fetch("http://localhost:3000/cities")
+     .then(function(response) {
+       if (response.ok) {
+         return response.json();
+       }
+     })
+     .then(function(data) {
+       cities = data;
+        addcity(cities);
+      });
+      function addcity(cities){
+        cities.forEach(function(item) {
+          const option = document.createElement('option');
+          option.innerHTML = `${item.name}`;
+          option.value = `${item.id}`;
+
+          city.appendChild(option);
+        })
+      }
+
+country.addEventListener('click', () => {
+  if (country.value !== "null") {
+    return state.hidden = false
+  }
+})
+
+state.addEventListener('click', () => {
+  if (state.value !== "null") {
+    return city.hidden = false
+  }
+})
