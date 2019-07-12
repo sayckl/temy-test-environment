@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  background-color: #fbb090;
+}
+h1 {
+  text-align: center;
+  font-size: 300%;
+}
+.registration-form {
+  padding: 1.5% 0;
+  font-size: 110%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: solid 2px black;
+  border-radius: 10px;
+  height: 100%;
+  background-color: #fbb333;
+}
+.registration-form input, select, option, textarea{
+  font-size: 90%;
+  width: 90%;
+}
+#phonenumber {
+  width: 70%;
+}
+.users p {
+  text-align: center;
+  font-size: 200%;
+}
+.userlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.user {
+  display: block;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 125%;
+  background-color: #123132;
+  color: #fff;
+}
+span {
+  color: red;
+}
