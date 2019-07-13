@@ -12,7 +12,7 @@
   <header>
   </header>
     <h1>It works!</h1>
-    <form class="registration-form" action="" method="post" onsubmit="validate, sendNewUser">
+    <form class="registration-form" action="" method="post" onsubmit="validate">
       <div><label for="name">Name:</label><span>*</span><input type="text" name="name" id="name" value="" placeholder="Your name" required></div>
       <div><label for="email">Email:</label><span>*</span><input type="text" name="email" id="email" value="" placeholder="Your email" required></div>
       <div><label for="country">Country:</label><span>*</span><select id="country" name="country_id" required>
@@ -22,6 +22,7 @@
         <option value="null">Chouse your state</option>
       </select></div>
       <div><label for="city">City:</label><span>*</span><select id="city" name="city_id" required  hidden="true">
+        <option value="null">Chouse your city</option>
       </select></div>
       <div><label for="phonenumber">Phone Number:</label><span>*</span><input type="text" id="phonenumber" name="phone_number" value="" placeholder="format (541) 754-3010" required></div>
       <div><label for="address">Address:</label><input type="text" id="address" name="address" value="" placeholder="Address line"></div>

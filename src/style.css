@@ -23,8 +23,6 @@ h1 {
   font-size: 90%;
   width: 90%;
   border-radius: 5px;
-  border-style: none;
-  border: 1px solid #000;
 }
 button {
   font-size: 100%;
@@ -54,4 +52,7 @@ button {
 }
 span {
   color: red;
+}
+.error {
+  border: solid 5px red;
 }
